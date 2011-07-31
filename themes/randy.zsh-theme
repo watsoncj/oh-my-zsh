@@ -26,11 +26,19 @@ autoload -Uz vcs_info
 # always use extended color pallete.
 # gnome terminal sets TERM to xterm even though it supports
 # 256 colors so I ripped out the if statement here.
-turquoise="%F{81}"
-orange="%F{166}"
-purple="%F{135}"
-hotpink="%F{161}"
-limegreen="%F{118}"
+if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    turquoise="%F{81}"
+    orange="%F{166}"
+    purple="%F{135}"
+    hotpink="%F{161}"
+    limegreen="%F{118}"
+else
+    turquoise="$fg[cyan]"
+    orange="$fg[yellow]"
+    purple="$fg[magenta]"
+    hotpink="$fg[red]"
+    limegreen="$fg[green]"
+fi
 
 # enable VCS systems you use
 zstyle ':vcs_info:*' enable git svn
