@@ -104,7 +104,7 @@ add-zsh-hook precmd steeef_precmd
 function prompt_char {
     # TODO: we're already calling out to git once, try to avoid a second call
     git branch >/dev/null 2>/dev/null && echo '±' && return
-    echo '○'
+    echo '›'
 }
 
 PROMPT=$'
